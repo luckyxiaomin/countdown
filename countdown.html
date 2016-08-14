@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function toTwo(n)
+{
+	if(n>9)
+	{
+	  return ''+n;	
+	}
+	else
+	{
+		return '0'+n;	
+	}
+}
+window.onload=function(){
+
+ var oBox=document.getElementById('box');
+ var aImg=oBox.getElementsByTagName('img');
+ 
+ function time(){
+	 var enddate=new Date('2016/10/15 00:00:00');
+	 var mydate=new Date();	
+	 var str='';
+	 var t=enddate.getTime()-mydate.getTime();
+	 str=toTwo(Math.floor(t/1000/60/60/24))+toTwo(Math.floor(t/1000/60/60%24))+toTwo(Math.floor(t/1000/60%60))+toTwo(Math.floor(t/1000%60));
+	  
+		 for(var i=0;i<aImg.length;i++)
+		 {
+			aImg[i].src='images/'+str[i]+'.png';	 
+		 }
+ 				}
+ time();
+ setInterval(time,1000);
+ 
+
+ 
+ 
+
+};
+</script>
+<style>
+#box { width:800px;
+	  height:200px;
+	  font-size:54px;
+	  line-height:100px;
+	  margin:auto;}
+#box img{ width:55px;
+		  height:100px;
+		  }
+
+</style>
+</head>
+
+<body>
+<div id="box">
+	<img src="images/0.png">
+    <img src="images/0.png">
+    :
+    <img src="images/0.png">
+    <img src="images/0.png">
+    :
+    <img src="images/0.png">
+    <img src="images/0.png">
+    :
+    <img src="images/0.png">
+    <img src="images/0.png">
+</div>
+</body>
+</html>
+
